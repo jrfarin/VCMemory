@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Gotu&display=swap');
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+html {
+    --amountRows: 4;
+    --percentageRows: 25%;
+    --amountColumns: 4;
+    --percentageColumns: 25%;
+}
+body {
+    color: #3b3b3c;
+    font-family: 'Cinzel', serif;
+    font-size: 3vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    font-size: 10vmin;
+}
+.button,
+button {
+    font-family: 'Gotu', sans-serif;
+    font-size: 2vmin;
+    padding: 1.1vmin 4vmin 1.5vmin;
+    background: rgba(255, 255, 255, 0);
+    border: solid grey 0.2vmin;
+    color: #3b3b3c;
+    border-radius: 0.5vmin;
+    cursor: pointer;
+    transition: background 0.3s ease-out;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.button:focus,
+button:focus {
+    outline: none;
+}
+.button:hover,
+button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.memory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5vmin;
+}
+.memory--started .memory__field {
+    animation: STARTINGANIMATION 0.5s linear forwards;
+}
+.memory--started .memory__field:nth-child(2n+2) {
+    animation: STARTINGANIMATION2 0.5s linear forwards;
+}
+.memory--started .memory__card {
+    cursor: pointer;
+}
+.memory__message {
+    position: fixed;
+    left: 15%;
+    top: 10%;
+    width: 28%;
+    height: 80%;
+    background: #1c1c1c;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.memory__message h1:first-of-type {
+    margin-top: 0;
+    color: #fff;
+}
+.memory__closeMessage {
+    position: absolute;
+    left: 2vmin;
+    top: 2vmin;
+    padding: 1vmin 1.3vmin 1.3vmin;
+    color: #fff;
+    font-weight: bold;
+}
+.memory__grid {
+    width: 70vmin;
+    height: 70vmin;
+    display: grid;
+    grid-template-columns: repeat(var(--amountColumns), var(--percentageColumns));
+    grid-template-rows: repeat(var(--amountRows), var(--percentageRows));
+    border: solid #dedede 1vmin;
+    border-radius: 3vmin;
+    padding: 3vmin;
+}
+.memory__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.memory__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    margin-right: 10vmin;
+    padding: 10vmin 0;
+}
+.memory__field {
+    position: relative;
+    transition: transform 0.5s ease-out, opacity 1s ease-out;
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.memory__field:nth-child(1) {
+    animation-delay: 0s;
+}
+.memory__field:nth-child(2n + 3),
+.memory__field:nth-child(2) {
+    animation-delay: 0.015s;
+}
+.memory__field:nth-child(3n + 3),
+.memory__field:nth-child(3) {
+    animation-delay: 0.03s;
+}
+.memory__field:nth-child(4n + 3),
+.memory__field:nth-child(4) {
+    animation-delay: 0.045s;
+}
+.memory__field--clicked .memory__card,
+.memory__field--matched .memory__card {
+    cursor: default;
+    transform: rotateY(0);
+}
+.memory__field--matched {
+    opacity: 0.5;
+}
+
+.memory__field--0 .memory__face--front {
+    background-image: url(img/img_1.jpg);
+}
+.memory__field--1 .memory__face--front {
+    background-image: url(img/img_2.jpg);
+}
+.memory__field--2 .memory__face--front {
+    background-image: url(img/img_3.jpg);
+}
+.memory__field--3 .memory__face--front {
+    background-image: url(img/img_4.jpg);
+}
+.memory__field--4 .memory__face--front {
+    background-image: url(img/img_5.jpg);
+}
+.memory__field--5 .memory__face--front {
+    background-image: url(img/img_6.jpg);
+}
+.memory__field--6 .memory__face--front {
+    background-image: url(img/img_7.jpg);
+}
+.memory__field--7 .memory__face--front {
+    background-image: url(img/img_8.jpg);
+}
+
+.memory__timer {
+    font-size: 5vmin;
+    margin: 0 0 2.5vmin;
+}
+.memory__tries {
+    font-size: 1.5vmin;
+    margin: 0;
+}
+.memory__tries #tries {
+    font-size: 5vmin;
+}
+.memory__mainTitle {
+    text-shadow: 0 0 1vmin #828282;
+    color: #353333;
+    margin: 0;
+    text-transform: uppercase;
+    transform: translateX(3%);
+}
+.memory__card {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    transform-origin: center;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+.memory__face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10%;
+    overflow: hidden;
+}
+.memory__face--front {
+    position: relative;
+    background: transparent;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.memory__face--back {
+    background-image: url("./img/vencaSmall.png");
+    transform: rotateY(180deg);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.memory__face--back:before {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 2.5vmin #ededed;
+    border-radius: 25%;
+}
+
+
+
+@keyframes STARTINGANIMATION {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes STARTINGANIMATION2 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@media all and (max-width: 768px) {
+
+    .button,
+    button {
+        font-size: 4vmin;
+        padding: 1.1vmin 4vmin 1.5vmin;
+        border: solid white 0.2vmin;
+    }
+
+    .memory {
+        padding: 5vmin 0 10vmin;
+        width: 90%;
+    }
+
+    .memory__panel {
+        margin-top: 10vmin;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-right: 0;
+        padding: 0 0 0;
+    }
+
+    .memory__stats {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .memory__mainTitle {
+        font-size: 20vmin;
+        transform: translateX(0);
+        margin: 0 auto 7vmin;
+    }
+
+    .memory__tries {
+        font-size: 3vmin;
+        margin: 0;
+    }
+
+    .memory__tries #tries {
+        font-size: 7vmin;
+    }
+
+    .memory__timer {
+        margin-right: 10vmin;
+        margin-bottom: 0;
+        font-size: 7vmin;
+    }
+
+    .memory__grid {
+        width: 90vmin;
+        height: 90vmin;
+        margin-top: 4vmin;
+    }
+
+    .memory--started .memory__field {
+        border-radius: 10%;
+    }
+
+    .memory--started .memory__field:nth-child(2n+2) {
+        animation-name: STARTINGANIMATION;
+    }
+
+    @keyframes STARTINGANIMATION {
+        0% {
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        25% {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        75% {
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            background-color: rgba(255, 255, 255, 0);
+        }
+    }
+}
