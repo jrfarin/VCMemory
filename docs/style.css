@@ -110,6 +110,14 @@ button:hover {
     margin-right: 10vmin;
     padding: 10vmin 0;
 }
+.memory__vclogo {
+    width: 100%;
+    margin-bottom: 10vmin;
+    text-align: center;
+}
+.memory__img {
+    width: 35%;
+}
 .memory__field {
     position: relative;
     transition: transform 0.5s ease-out, opacity 1s ease-out;
@@ -237,8 +245,6 @@ button:hover {
     border-radius: 25%;
 }
 
-
-
 @keyframes STARTINGANIMATION {
     0% {
         transform: rotate(0deg);
@@ -252,7 +258,6 @@ button:hover {
         transform: rotate(360deg);
     }
 }
-
 @keyframes STARTINGANIMATION2 {
     0% {
         transform: rotate(0deg);
@@ -267,66 +272,66 @@ button:hover {
     }
 }
 
-@media all and (max-width: 768px) {
-
+@media (min-width: 320px) and (max-width: 800px) {
     .button,
     button {
-        font-size: 4vmin;
-        padding: 1.1vmin 4vmin 1.5vmin;
-        border: solid white 0.2vmin;
+        font-size: 5vmin;
+        padding: 3vmin 4vmin 1.5vmin;
+        border: solid #e3e3e3 0.2vmin;
     }
-
     .memory {
-        padding: 5vmin 0 10vmin;
         width: 90%;
+        padding: 0 0 20vmin;
     }
-
+    .memory__message {
+        top: 0;
+        left: 0;
+        width: 100vmin;
+        height: 100vmax;
+    }
+    .memory__closeMessage {
+        top: 3vmin;
+        left: 86vmin;
+        padding: 2vmin 4vmin;
+    }
+    .memory__mainTitle {
+        font-size: 15vmin;
+        transform: translateX(0);
+        margin: 0 auto 5vmin;
+    }
     .memory__panel {
-        margin-top: 10vmin;
         justify-items: center;
         align-items: center;
         flex-wrap: wrap;
         flex-direction: row;
         margin-right: 0;
-        padding: 0 0 0;
+        padding: 0 5vmin 5vmin;
     }
-
     .memory__stats {
         display: flex;
         align-items: flex-end;
     }
-
-    .memory__mainTitle {
-        font-size: 20vmin;
-        transform: translateX(0);
-        margin: 0 auto 7vmin;
-    }
-
     .memory__tries {
         font-size: 3vmin;
         margin: 0;
     }
-
     .memory__tries #tries {
         font-size: 7vmin;
     }
-
     .memory__timer {
         margin-right: 10vmin;
         margin-bottom: 0;
         font-size: 7vmin;
     }
-
     .memory__grid {
         width: 90vmin;
         height: 90vmin;
-        margin-top: 4vmin;
+        margin-top: 2vmin;
+        padding: 1.5vmin;
     }
-
     .memory--started .memory__field {
         border-radius: 10%;
     }
-
     .memory--started .memory__field:nth-child(2n+2) {
         animation-name: STARTINGANIMATION;
     }
