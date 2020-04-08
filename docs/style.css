@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel|Gotu&display=swap');
-
 html,
 body {
     height: 100%;
@@ -7,26 +5,59 @@ body {
 }
 html {
     --amountRows: 4;
-    --percentageRows: 25%;
+    --percentageRows: 20%;
     --amountColumns: 4;
-    --percentageColumns: 25%;
+    --percentageColumns: 21%;
 }
 body {
     color: #3b3b3c;
-    font-family: 'Cinzel', serif;
-    font-size: 3vmin;
+    font-family: 'Roboto', serif;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     box-sizing: border-box;
+    background-image: url(./img/wall.png);
 }
-h1 {
-    font-size: 10vmin;
+section.memory {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 90vh
 }
-.button,
-button {
-    font-family: 'Gotu', sans-serif;
-    font-size: 2vmin;
+.memory__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+.memory__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    height: 75vh;
+    margin-top: 5rem;
+}
+.memory__mainTitle {
+    background: #fd4138;
+    padding: 5px 50px;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    color: #fff;
+    width: 70%;
+    margin-left: 15%;   
+}
+p.memory__lead {
+    font-family: 'BebasNeueRegular';
+    font-size: 5rem;
+    color: #fd4138;
+    margin-top: 2rem;
+}
+section.memory .button,
+section.memory button {
     padding: .5rem 2rem;
     background: rgba(255, 255, 255, 0);
     border: solid grey 0.2vmin;
@@ -37,21 +68,14 @@ button {
     text-decoration: none;
     text-transform: uppercase;
 }
-.button:focus,
-button:focus {
+section.memory .button:focus,
+section.memory button:focus {
     outline: none;
 }
-.button:hover,
-button:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.memory {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem;
+section.memory .button:hover,
+section.memory button:hover {
+    border-color: #FD4138; 
+    color: #FD4138;
 }
 .memory--started .memory__field {
     animation: STARTINGANIMATION 0.5s linear forwards;
@@ -64,10 +88,10 @@ button:hover {
 }
 .memory__message {
     position: fixed;
-    left: 15%;
+    left: 12%;
     top: 10%;
-    width: 28%;
-    height: 80%;
+    width: 32%;
+    height: 70%;
     background: #1c1c1c;
     z-index: 5;
     display: flex;
@@ -78,6 +102,7 @@ button:hover {
 }
 .memory__message h1:first-of-type {
     margin-top: 0;
+    margin-bottom: 4rem;
     color: #fff;
 }
 .memory__closeMessage {
@@ -85,39 +110,24 @@ button:hover {
     left: 2vmin;
     top: 2vmin;
     padding: 1vmin 1.3vmin 1.3vmin;
-    color: #fff;
+    color: #fff !important;
     font-weight: bold;
 }
 .memory__grid {
-    width: 70vmin;
-    height: 70vmin;
+    position:relative;
+    top: 19.5%;
+    left: 8%;
+    width: 60vmin;
+    height: 60vmin;
     display: grid;
     grid-template-columns: repeat(var(--amountColumns), var(--percentageColumns));
     grid-template-rows: repeat(var(--amountRows), var(--percentageRows));
-    border: solid #dedede 1vmin;
-    border-radius: 3vmin;
-    padding: 3vmin;
 }
-.memory__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.memory__panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
-    margin-right: 5rem;
-    padding: 10vmin 0;
-}
-.memory__vclogo {
-    width: 100%;
-    margin-bottom: 10vmin;
-    text-align: center;
-}
-.memory__img {
-    width: 35%;
+.memory__wardrobe {
+    background-image: url(img/wardrobe.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 2rem;
 }
 .memory__field {
     position: relative;
@@ -178,26 +188,21 @@ button:hover {
 
 .memory__timer {
     font-size: 5vmin;
-    margin: 0 0 2.5vmin;
+    margin: 2rem 0 1rem;
 }
 .memory__tries {
     font-size: 1.5vmin;
     margin: 0;
+    display: none;
 }
 .memory__tries #tries {
     font-size: 5vmin;
 }
-.memory__mainTitle {
-    text-shadow: 0 0 1vmin #828282;
-    color: #353333;
-    margin: 0;
-    text-transform: uppercase;
-    transform: translateX(3%);
-}
+
 .memory__card {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     transform-origin: center;
     transform: rotateY(180deg);
     transform-style: preserve-3d;
@@ -242,7 +247,7 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    border: solid 2.5vmin #ededed;
+    border: solid 1vmin #ededed;
     border-radius: 25%;
 }
 
