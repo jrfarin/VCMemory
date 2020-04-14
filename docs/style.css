@@ -160,7 +160,6 @@ section.memory button:hover {
 .memory__field--matched {
     opacity: 0.5;
 }
-
 .memory__field--0 .memory__face--front {
     background-image: url(img/img_1.jpg);
 }
@@ -185,20 +184,10 @@ section.memory button:hover {
 .memory__field--7 .memory__face--front {
     background-image: url(img/img_8.jpg);
 }
-
 .memory__timer {
     font-size: 5vmin;
     margin: 2rem 0 1rem;
 }
-.memory__tries {
-    font-size: 1.5vmin;
-    margin: 0;
-    display: none;
-}
-.memory__tries #tries {
-    font-size: 5vmin;
-}
-
 .memory__card {
     position: absolute;
     width: 80%;
@@ -285,9 +274,24 @@ section.memory button:hover {
         padding: 3vmin 4vmin 1.5vmin;
         border: solid #e3e3e3 0.2vmin;
     }
-    .memory {
-        width: 90%;
-        padding: 0 0 20vmin;
+    span.moreGames {
+        display: block;
+        margin-top: -20px;
+    }
+    section.memory .w80, section.memory .w50 {
+        width: 100% !important;
+    }
+    section.memory .voffset5 {
+        margin-top: 0;
+    }
+    section.memory .mb-my-0{
+        margin: 20px 0 40px;
+    }
+    section.memory {
+        width: 100%;
+        align-items: center;
+        margin: 0;
+        height: auto;
     }
     .memory__message {
         top: 0;
@@ -300,46 +304,59 @@ section.memory button:hover {
         left: 86vmin;
         padding: 2vmin 4vmin;
     }
-    .memory__mainTitle {
-        font-size: 15vmin;
-        transform: translateX(0);
-        margin: 0 auto 5vmin;
-    }
     .memory__panel {
         justify-items: center;
         align-items: center;
         flex-wrap: wrap;
         flex-direction: row;
-        margin-right: 0;
-        padding: 0 5vmin 5vmin;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 27vh;
     }
     .memory__stats {
         display: flex;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
     }
-    .memory__tries {
-        font-size: 3vmin;
+    p.memory__lead {
+        font-size: 4rem;
+        color: #fd4138;
         margin: 0;
     }
-    .memory__tries #tries {
-        font-size: 7vmin;
-    }
     .memory__timer {
-        margin-right: 10vmin;
-        margin-bottom: 0;
+        position: absolute;
+        top: 40%;
+        margin: 0;
         font-size: 7vmin;
+        font-weight: bold;
+        color: #fff;
+    }
+    .mbPosition {
+        position: absolute;
+        bottom: -24%;
+    }
+    .endText {
+        display: block;
+        width: 80%;
+        margin: auto;
+        font-size: 1.75rem;
+        font-weight: bold;
     }
     .memory__grid {
-        width: 90vmin;
-        height: 90vmin;
-        margin-top: 2vmin;
-        padding: 1.5vmin;
+        width: 92vmin;
+        height: 92vmin;
     }
     .memory--started .memory__field {
         border-radius: 10%;
     }
     .memory--started .memory__field:nth-child(2n+2) {
         animation-name: STARTINGANIMATION;
+    }
+    .memory__wardrobe {
+        margin-top: 0;
+        width: 100%;
+        height: 455px;
     }
 
     @keyframes STARTINGANIMATION {
@@ -374,15 +391,43 @@ section.memory button:hover {
         padding: 2vmin 4vmin;
     }
     .memory__panel {
-        margin-right: 3rem;
-        padding: 0 0 5vmin;
+       width: 100%;
+       height: 20vh;
+       margin-top: 0;
+    }
+    .memory__wardrobe {
+        height: 600px;
+        margin-top: 0;
+    }
+    p.memory__lead {
+        margin-top: 0;
     }
     .memory__vclogo {
         margin-bottom: 3vmin;
     }
     .memory__tries {
         margin-bottom: 2rem;
+    }
+    .mbPosition {
+        position: absolute;
+        bottom: -4%;
+        left: 25%;
     } 
+    section.memory .w50 {
+        width: 100% !important;
+    }
+    .memory__timer {
+        position: absolute;
+        top: 33.5%;
+        left: 44%;
+        margin: 0;
+        font-size: 5vmin;
+        font-weight: bold;
+        color: #fff;
+    }
+    .memory__button {
+        margin-top: 2rem;
+    }
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 

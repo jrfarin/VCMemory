@@ -16,37 +16,39 @@
         <div class="row">
             <div class="col-sm-12">
                 <a href="">
-                    <span class="thin text-uppercase FS18"><i class="fa fa-angle-left pt-25 pr05"></i> otros juegos</span>
+                    <span class="thin text-uppercase FS16 moreGames"><i class="fa fa-angle-left pt-25 pr05"></i> otros juegos</span>
                 </a>
                 <section id="memory" class="memory">
                     <div id="messageWinning" class="memory__message memory__message--winning">
                         <button id="closeMessageWinning" class="memory__closeMessage">x</button>
                         <h1>¡Ganaste!</h1>
-                        <div>
+                        <div style="display:none;">
                             <a id="tellYourMum" class="button" href="" style=color:#fff;>Envía el Mail</a>
                         </div>
                     </div>
                     <div class="memory__wrapper">
 
                         <div class="memory__panel">
-                            <h1 class="memory__mainTitle">Memory</h1>                                              
+                            <h1 class="memory__mainTitle hidden-sm hidden-xs">Memory</h1>                                              
                             <div class="memory__stats">
                                 <p class="memory__lead">Entrena y estrena</p>
                                 <span class="block w80 mx-auto">¡Enlaza las parejas iguales clicando sobre los recuadros!. 
                                     <strong>Inspírate con la moda y descubre todas las novedades. Anímate a batir tu propio récord.</strong> 
-                                    ¡Tu juego empieza ya! <span style="color:#FD4138;">#vencacontigo</span> hoy y siempre.</span>
+                                    <span class="hidden-sm hidden-xs">¡Tu juego empieza ya! <span style="color:#FD4138;">#vencacontigo</span> hoy y siempre.</span></span>
                                 <p id="timer" class="memory__timer">00:00</p>
-                                <p class="memory__tries"><span id="tries">0</span> tries</p>
+                                <p class="memory__tries" style="display:none;"><span id="tries">0</span> tries</p>
                             </div>
                             <div>
                                 <button id="start" class="memory__button memory__button--start">start</button>
                             </div>
-                            <div class="w50 mx-auto voffset5">
-                                <span>Si te apetece renovar armario, visita ahora la Nueva Colección…</span>
-                            </div>
-                            <div>
-                                <button class="voffset5 antiVoffset5">¡Ver todo lo nuevo!</button>
-                            </div>
+                            <div class="mbPosition">
+                                <div class="w50 mx-auto voffset5">
+                                    <span class="endText">Si te apetece renovar armario, visita ahora la Nueva Colección…</span>
+                                </div>
+                                <div>
+                                    <button class="voffset5 antiVoffset5 mb-my-0">¡Ver todo lo nuevo!</button>
+                                </div>
+                            </div>                           
                         </div>
 
                         <div class="memory__wardrobe">
@@ -155,9 +157,7 @@
         </div>
     </main>
    
-
     <script src="./script.min.js"></script>
-
 </body>
 
 </html>
